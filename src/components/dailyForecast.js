@@ -54,7 +54,7 @@ const groupDataByDay = (list) => {
   const groupedData = {};
 
   list.forEach((item) => {
-    const date = new Date(item.dt * 1000 - 10800000 * 2);
+    const date = new Date(item.dt * 1000);
     const dayKey = date.toLocaleDateString("ru-RU");
 
     if (!groupedData[dayKey]) {

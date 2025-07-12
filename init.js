@@ -8,7 +8,7 @@ import { getCurrentYear } from "./src/components/currentYear.js";
 
 export function initApp() {
   switchTheme();
-  getGeoData();
+  // getGeoData();
   getWeatherByForm();
   renderCurrentTime();
   geoLacation();

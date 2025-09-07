@@ -2,15 +2,19 @@ import { apiKey, baseUrl } from "../api/apiKeyAndHost.js";
 import { getForecast, getWeather } from "../api/getWeatherAndForecast.js";
 import { renderCurrentWeather } from "./currentWeather.js";
 import { renderDailyForecast } from "./dailyForecast.js";
+import { displayInfo } from "./displayInfo.js";
 import { showError } from "./error.js";
 import { renderHourlyForecast } from "./hourlyForecast.js";
 
 export function geoLacation() {
+  displayInfo("Поиск погоды по геолокации...");
+
   document.addEventListener("DOMContentLoaded", async () => {
     try {
       const { latitude, longitude } = await getBrowserGeoLacation();
       const locationName = await geoLacationName(latitude, longitude);
       await fetchWeatherByCoords(latitude, longitude, locationName);
+      displayInfo("");
     } catch (error) {
       console.error("ошибка при получении геолокации:", error.message);
       showError(

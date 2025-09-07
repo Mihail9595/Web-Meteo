@@ -49,6 +49,12 @@ main {
   margin-top: 5px;
 }
 
+#info-message {
+  color: green;
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+
 @keyframes glow {
   0%,
   100% {

@@ -8,8 +8,11 @@ import { getForecast, getWeather } from "./getWeatherAndForecast.js";
 import { renderCurrentWeather } from "../components/currentWeather.js";
 import { renderHourlyForecast } from "../components/hourlyForecast.js";
 import { renderDailyForecast } from "../components/dailyForecast.js";
+import { displayInfo } from "../components/displayInfo.js";
 
 export const getGeoData = async () => {
+  displayInfo("Загрузка данных...");
+
   let city = cityInput.value.trim();
 
   if (!city || !isCyrillic(city)) {
@@ -46,6 +49,7 @@ export const getGeoData = async () => {
     renderCurrentWeather(weatherData, city);
     renderHourlyForecast(forecastData);
     renderDailyForecast(forecastData);
+    displayInfo("");
   } catch (error) {
     console.error(error.message);
     showError("Данные не получены");
